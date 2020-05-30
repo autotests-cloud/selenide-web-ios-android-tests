@@ -1,0 +1,123 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath group: 'io.qameta.allure', name: 'allure-gradle', version: '2.8.1'
+    }
+}
+
+plugins {
+    id 'java-library'
+    id 'application'
+    id 'io.qameta.allure' version '2.8.1'
+}
+
+group 'cloud.autotests'
+version '1.0'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+defaultTasks 'help'
+
+ext {
+    allureVersion = '2.13.3'
+    junitVersion = '5.6.2'
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+
+allure {
+    version = "${allureVersion}"
+    autoconfigure = true
+    aspectjweaver = true
+    useJUnit5 {
+        version = "${allureVersion}"
+    }
+}
+
+dependencies {
+    testImplementation 'org.aspectj:aspectjweaver:1.9.5'
+    testImplementation 'com.codeborne:selenide:5.11.1'
+    testImplementation "io.qameta.allure:allure-selenide:${allureVersion}"
+    testImplementation "io.qameta.allure:allure-rest-assured:${allureVersion}"
+    testImplementation 'io.rest-assured:rest-assured:4.1.2'
+    testImplementation 'io.appium:java-client:7.3.0'
+    testImplementation 'com.fasterxml.jackson.core:jackson-annotations:2.10.3'
+    testImplementation 'ch.qos.logback:logback-classic:1.2.3'
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Test) {
+    systemProperties = System.properties
+    if (project.hasProperty("web_threads")) {
+        systemProperties += [
+                'junit.jupiter.execution.parallel.enabled'                 : true,
+                'junit.jupiter.execution.parallel.mode.default'            : 'concurrent',
+                'junit.jupiter.execution.parallel.mode.classes.default'    : 'concurrent',
+                'junit.jupiter.execution.parallel.config.strategy'         : 'fixed',
+                'junit.jupiter.execution.parallel.config.fixed.parallelism': project.getProperty("web_threads").toInteger()
+        ]
+    }
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+    if (project.hasProperty("allure_results")) {
+        systemProperty 'allure_results', project.getProperty("allure_results")
+    }
+}
+
+task web(type: Test) {
+    useJUnitPlatform {
+        includeTags 'web'
+    }
+    systemProperty 'platform', 'web'
+}
+
+task android(type: Test) {
+    useJUnitPlatform {
+        includeTags 'android'
+    }
+    systemProperty 'platform', 'android'
+}
+
+task ios(type: Test) {
+    useJUnitPlatform {
+        includeTags 'ios'
+    }
+    systemProperty 'platform', 'ios'
+}
+
+help {
+    doFirst {
+        println ""
+        println "************************************************************************ "
+        println "***                                                                  *** "
+        println "*** Welcome to                                                       *** "
+        println "*** https://github.com/autotests-cloud/selenide-junit5-allure-gradle *** "
+        println "***                                                                  *** "
+        println "*** Requirements for mobile tests:                                   *** "
+        println "*** - start appium server locally                                    *** "
+        println "*** - install XCode with iPhone Simulators                           *** "
+        println "***                                                                  *** "
+        println "*** You can run tests by one of the following commands:              *** "
+        println "*** ./gradlew web                                                    *** "
+        println "*** ./gradlew android                                                *** "
+        println "*** ./gradlew ios                                                    *** "
+        println "***                                                                  *** "
+        println "************************************************************************ "
+        println ""
+    }
+}
