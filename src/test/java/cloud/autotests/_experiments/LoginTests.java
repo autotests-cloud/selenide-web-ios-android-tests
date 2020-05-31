@@ -3,6 +3,7 @@ package cloud.autotests._experiments;
 import cloud.autotests.tests.TestBase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Story;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -35,7 +36,7 @@ class LoginTests extends TestBase {
         $(byT("Remember me checkbox")).click();
         $(byT("Login button")).click();
 
-        $(byT("Authorization form")).should(disappear);
+        $(byT("Authorization form")).shouldNot(exist);
         $(byT("Header label")).shouldHave(text("Hello, Alex!"));
         $$(byT("Private content"))
                 .shouldHaveSize(2)
@@ -49,11 +50,11 @@ class LoginTests extends TestBase {
     void successfulStepsLogin() {
         step("Go to login page", ()-> {
             open("/login.html");
+            $(byT("Header label")).shouldHave(text("Not authorized"));
+            $(byT("Authorization form")).shouldBe(visible);
         });
 
         step("Fill the authorization form", ()-> {
-            $(byT("Header label")).shouldHave(text("Not authorized"));
-            $(byT("Authorization form")).shouldBe(visible);
             $(byT("Login input")).setValue(DEFAULT_LOGIN);
             $(byT("Password input")).setValue(DEFAULT_PASSWORD);
             $(byT("Remember me checkbox")).click();
@@ -61,7 +62,7 @@ class LoginTests extends TestBase {
         });
 
         step("Verify successful authorization", ()-> {
-            $(byT("Authorization form")).should(disappear);
+            $(byT("Authorization form")).shouldNot(exist);
             $(byT("Header label")).shouldHave(text("Hello, Alex!"));
             $$(byT("Private content"))
                     .shouldHaveSize(2)
@@ -71,7 +72,8 @@ class LoginTests extends TestBase {
 
     @Test
     @Tag("web")
-    @Description("Same test with page object") // its standart
+    @Disabled
+    @Description("Same test with page object") // its standard
     @DisplayName("Successful login")
     void successfulPOLogin() {
         // todo

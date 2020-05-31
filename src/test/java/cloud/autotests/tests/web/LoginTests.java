@@ -30,7 +30,7 @@ class LoginTests extends TestBase {
         $(byT("Remember me checkbox")).click();
         $(byT("Login button")).click();
 
-        $(byT("Authorization form")).should(disappear);
+        $(byT("Authorization form")).shouldNot(exist);
         $(byT("Header label")).shouldHave(text("Hello, Alex!"));
         $$(byT("Private content"))
                 .shouldHaveSize(2)

@@ -31,16 +31,15 @@ public class EnvironmentHelper {
 //        browser = System.getProperty("browser", "firefox"),
 //        browser = System.getProperty("browser", "opera"),
         screenResolution = System.getProperty("screen_resolution", "1360x768"),
-        webMobileDevice = System.getProperty("web_mobile_device", "");
+        webMobileDevice = System.getProperty("web_mobile_device"),
 //        webMobileDevice = System.getProperty("web_mobile_device", "iPhone X");
+        remoteDriverUrl = "http://" + System.getProperty("remote_driver_url") + ":4444",
+        videoStorageUrl = "http://" + System.getProperty("video_storage_url");
     public static final boolean
-        isWebMobile = (webMobileDevice + "").length() > 0,
         isHeadless = parseBoolean(System.getProperty("headless", "false")),
-        isRemoteDriver = parseBoolean(System.getProperty("remote_driver", "false")),
-        isVideoOn = parseBoolean(System.getProperty("video", "false"));
-    public static final String
-        remoteDriverUrl = "http://" + System.getProperty("remote_driver_url", "localhost") + ":4444",
-        videoHost = "http://" + System.getProperty("video_host", "localhost");
+        isWebMobile = System.getProperty("web_mobile_device") != null,
+        isRemoteDriver = System.getProperty("remote_driver_url") != null,
+        isVideoOn = System.getProperty("video_storage_url") != null;
 
 // Mobile config for devices in browserstack
     public static final String
@@ -67,7 +66,7 @@ public class EnvironmentHelper {
             "\nplatform: " + platform +
             "\nlanguage: " + language +
             "\nisVideoOn: " + isVideoOn +
-            (isVideoOn && isWeb ? "\nvideoHost: " + videoHost : "") +
+            (isVideoOn && isWeb ? "\nvideoHost: " + videoStorageUrl : "") +
             "\nbuildNumber: " + buildNumber +
             "\njobBaseName: " + jobBaseName;
 
