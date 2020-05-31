@@ -27,7 +27,6 @@ class LoginTests extends TestBase {
         $(byT("Authorization form")).shouldBe(visible);
         $(byT("Login input")).setValue(DEFAULT_LOGIN);
         $(byT("Password input")).setValue(DEFAULT_PASSWORD);
-        $(byT("Language select")).selectOption("English");
         $(byT("Remember me checkbox")).click();
         $(byT("Login button")).click();
 
