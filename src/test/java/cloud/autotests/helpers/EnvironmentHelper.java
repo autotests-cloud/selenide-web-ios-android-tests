@@ -1,28 +1,19 @@
 package cloud.autotests.helpers;
 
-import static cloud.autotests.utils.FileUtils.getResourcesPath;
 import static java.lang.Boolean.parseBoolean;
 
 
 public class EnvironmentHelper {
-// COMMON CONFIG
+// PLATFORM CONFIG
     public final static String
-        platform = System.getProperty("platform", "web"),
-//        platform = System.getProperty("platform", "android"),
-//        platform = System.getProperty("platform", "ios"),
-        language = System.getProperty("language", "en");
-//        language = System.getProperty("language", "sp");
-
-// CI CONFIG
-    public static final String
-        buildNumber = System.getProperty("build_number", "0"),
-        jobBaseName = System.getProperty("job_base_name", "local");
+        platform = System.getProperty("platform", "web");
+//        platform = System.getProperty("platform", "android");
+//        platform = System.getProperty("platform", "ios");
 
 // WEB CONFIG
     public static final boolean isWeb = platform.equals("web");
     public static final String
-        webUrl = System.getProperty("web_url", getResourcesPath()),
-//        webUrl = "https://" + System.getProperty("web_url", "autotests.cloud"),
+        webUrl = "http://" + System.getProperty("web_url", "autotests.cloud"),
 //        webUrl = "https://" + System.getProperty("web_url", "test.autotests.cloud"),
 //        webUrl = "https://" + System.getProperty("web_url", "staging.autotests.cloud"),
 //        webUrl = "https://login:password@" + System.getProperty("web_url", "staging.autotests.cloud"),
@@ -41,7 +32,7 @@ public class EnvironmentHelper {
         isRemoteDriver = System.getProperty("remote_driver_url") != null,
         isVideoOn = System.getProperty("video_storage_url") != null;
 
-// Mobile config for devices in browserstack
+// BROWSERSTACK CONFIG
     public static final String
         bsLogin = System.getProperty("bs_login", ""),
         bsPassword = System.getProperty("bs_password", "");
@@ -60,45 +51,8 @@ public class EnvironmentHelper {
         iosVersion = System.getProperty("mobile_version", "13.2"),
         iosBrowserstackApp = System.getProperty("bs_app", "bs://7dccae106ba5955af20c92a0ceb9...");
 
-
-    public static String getEnvironment() {
-        String environment =
-            "\nplatform: " + platform +
-            "\nlanguage: " + language +
-            "\nisVideoOn: " + isVideoOn +
-            (isVideoOn && isWeb ? "\nvideoHost: " + videoStorageUrl : "") +
-            "\nbuildNumber: " + buildNumber +
-            "\njobBaseName: " + jobBaseName;
-
-        switch (platform) {
-            case "web":
-                environment +=
-                    "\nurl: " + webUrl +
-                    "\napiUrl: " + apiUrl +
-                    "\nbrowser: " + browser +
-                    "\nisWebMobile: " + isWebMobile +
-                    (isWebMobile ?
-                        "\nwebMobileDevice: " + webMobileDevice :
-                        "\nscreenResolution: " + screenResolution) +
-                    "\nisRemoteDriver: " + isRemoteDriver +
-                    "\nremoteDriver: " + remoteDriverUrl;
-                break;
-
-            case "android":
-                environment +=
-                    "\nandroidDevice: " + androidDevice +
-                    "\nandroidVersion: " + androidVersion +
-                    "\nandroidBrowserstackApp: " + androidBrowserstackApp;
-                break;
-
-            case "ios":
-                environment +=
-                    "\niosDevice: " + iosDevice +
-                    "\niosVersion: " + iosVersion +
-                    "\niosBrowserstackApp: " + iosBrowserstackApp;
-                break;
-        }
-
-        return environment;
-    }
+// CI CONFIG
+    public static final String
+            buildNumber = System.getProperty("build_number", "0"),
+            jobBaseName = System.getProperty("job_base_name", "local");
 }

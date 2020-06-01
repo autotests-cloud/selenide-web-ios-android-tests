@@ -5,8 +5,8 @@ import org.junit.jupiter.api.*;
 
 import static cloud.autotests.helpers.AttachmentsHelper.*;
 import static cloud.autotests.helpers.BrowserstackHelper.getBSPublicLink;
+import static cloud.autotests.helpers.DriverHelper.*;
 import static cloud.autotests.helpers.EnvironmentHelper.*;
-import static cloud.autotests.helpers.SelenideHelper.configureSelenide;
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 
@@ -21,7 +21,6 @@ public class TestBase {
     public static void beforeAll() {
         addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
         configureSelenide();
-        attachEnvironment();
     }
 
     @AfterEach
@@ -31,7 +30,7 @@ public class TestBase {
         attachScreenshot("Last screenshot");
         attachPageSource();
 //        attachNetwork(); // todo
-        if (isWeb) attachBrowserConsoleLogs();
+        if (isWeb) attachAsText("Browser console logs", getConsoleLogs());
         if (isIos || isAndroid) attachAsText("Browserstack build link", getBSPublicLink(sessionId));
 
         closeWebDriver();
