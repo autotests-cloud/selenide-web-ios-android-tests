@@ -25,7 +25,7 @@ public class EnvironmentHelper {
         webMobileDevice = System.getProperty("web_mobile_device"),
 //        webMobileDevice = System.getProperty("web_mobile_device", "iPhone X");
         remoteDriverUrl = "http://" + System.getProperty("remote_driver_url") + ":4444",
-        videoStorageUrl = "http://" + System.getProperty("video_storage_url");
+        videoStorageUrl = "http://" + System.getProperty("video_storage_url") + ":4444";
     public static final boolean
         isHeadless = parseBoolean(System.getProperty("headless", "false")),
         isWebMobile = System.getProperty("web_mobile_device") != null,
