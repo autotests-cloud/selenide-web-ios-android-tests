@@ -25,7 +25,6 @@ ext {
 }
 
 repositories {
-    jcenter()
     mavenCentral()
 }
 
@@ -41,7 +40,7 @@ allure {
 
 dependencies {
     testImplementation 'org.aspectj:aspectjweaver:1.9.5'
-    testImplementation 'com.codeborne:selenide:5.11.1'
+    testImplementation 'com.codeborne:selenide:5.12.2'
     testImplementation "io.qameta.allure:allure-selenide:${allureVersion}"
     testImplementation "io.qameta.allure:allure-rest-assured:${allureVersion}"
     testImplementation 'io.rest-assured:rest-assured:4.1.2'
@@ -82,6 +81,8 @@ tasks.withType(Test) {
 task web(type: Test) {
     useJUnitPlatform {
         includeTags 'web'
+
+        excludeTags 'bad-practice', 'not-very-bad-practice'
     }
     systemProperty 'platform', 'web'
 }
@@ -89,6 +90,8 @@ task web(type: Test) {
 task android(type: Test) {
     useJUnitPlatform {
         includeTags 'android'
+
+        excludeTags 'bad-practice', 'not-very-bad-practice'
     }
     systemProperty 'platform', 'android'
 }
@@ -96,6 +99,8 @@ task android(type: Test) {
 task ios(type: Test) {
     useJUnitPlatform {
         includeTags 'ios'
+
+        excludeTags 'bad-practice', 'not-very-bad-practice'
     }
     systemProperty 'platform', 'ios'
 }

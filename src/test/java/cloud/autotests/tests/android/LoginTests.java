@@ -1,6 +1,7 @@
 package cloud.autotests.tests.android;
 
 import cloud.autotests.tests.TestBase;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -13,12 +14,13 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 
+@Feature("Selenide-appium web, iOS and Android tests")
 @Story("Login tests")
 @Tag("android")
 @Tag("login")
 class LoginTests extends TestBase {
     @Test
-    @DisplayName("Successful login Android react-native app")
+    @DisplayName("Successful login with Android react-native app")
     void successfulLogin() {
         step("Go to login page", ()-> {
             open();

@@ -1,5 +1,6 @@
 package cloud.autotests.tests;
 
+import io.qameta.allure.Feature;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 
