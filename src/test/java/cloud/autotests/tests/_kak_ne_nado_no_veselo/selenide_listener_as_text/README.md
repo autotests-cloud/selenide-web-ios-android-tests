@@ -1,1 +1,1 @@
-![selenide_listener_as_text.png](src/test/resources/allure_screenshots/selenide_listener_as_text.png)
+![selenide_listener_as_text.png](/src/test/resources/allure_screenshots/selenide_listener_as_text.png)
