@@ -37,6 +37,7 @@ class LoginTests extends TestBase {
         $(byTestId("Header label")).shouldHave(text("Hello, Alex!"));
         $$(byTestId("Private content"))
                 .shouldHaveSize(2)
-                .shouldHave(texts("Here is your private content #1", "and private content #2"));
+                .shouldHave(texts("Here is your private content #1",
+                        "and private content #2"));
     }
 }

@@ -32,11 +32,11 @@ public class DriverHelper {
         if(isWeb) {
             return by("data-testid",  testId);
         } else if (isAndroid) {
-            return byXpath("//*[@content-desc='" + testId + "']");
+            return MobileBy.xpath("//*[@content-desc='" + testId + "']");
         } else if (isIos) {
             return MobileBy.id(testId);
-        } else {
-            return null; // todo isDesktop
+        } else { // todo isDesktop
+            return by("some-desktop-attribute-name",  testId);
         }
     }
 

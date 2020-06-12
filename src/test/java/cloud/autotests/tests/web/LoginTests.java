@@ -37,10 +37,11 @@ class LoginTests extends TestBase {
 
         step("Verify successful authorization", ()-> {
             $(byTestId("Authorization form")).shouldNot(exist);
-            $(byTestId("Header label")).shouldHave(text("Hello, Alex!"));
+            $(byTestId("Header label")).shouldHave(text("Hello, " + DEFAULT_LOGIN + "!"));
             $$(byTestId("Private content"))
                     .shouldHaveSize(2)
-                    .shouldHave(texts("Here is your private content #1", "and private content #2"));
+                    .shouldHave(texts("Here is your private content #1",
+                            "and private content #2"));
         });
     }
 }
