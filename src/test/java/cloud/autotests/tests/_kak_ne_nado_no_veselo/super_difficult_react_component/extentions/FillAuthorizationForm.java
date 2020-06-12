@@ -15,7 +15,7 @@ class FillAuthorizationForm implements Command<ExtendedSelenideElement> {
         String login = (String) args[0];
         String password = (String) args[1];
 
-        $(byTestId("Authorization form")).shouldBe(visible);
+        element.shouldBe(visible);
         $(byTestId("Login input")).setValue(login);
         $(byTestId("Password input")).setValue(password);
         $(byTestId("Remember me checkbox")).click();
