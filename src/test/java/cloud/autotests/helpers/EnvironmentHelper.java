@@ -1,9 +1,12 @@
 package cloud.autotests.helpers;
 
+import javafx.beans.property.SetProperty;
+
 import static java.lang.Boolean.parseBoolean;
 
 
 public class EnvironmentHelper {
+
 // PLATFORM CONFIG
     public final static String
         platform = System.getProperty("platform", "web");
@@ -24,13 +27,13 @@ public class EnvironmentHelper {
         screenResolution = System.getProperty("screen_resolution", "1360x768"),
         webMobileDevice = System.getProperty("web_mobile_device"),
 //        webMobileDevice = System.getProperty("web_mobile_device", "iPhone X");
-        remoteDriverUrl = "http://" + System.getProperty("remote_driver_url") + ":4444",
-        videoStorageUrl = "http://" + System.getProperty("video_storage_url") + ":4444";
+        remoteDriverUrl = System.getProperty("remote_driver_url"),
+        videoStorageUrl = System.getProperty("video_storage_url");
     public static final boolean
         isHeadless = parseBoolean(System.getProperty("headless", "false")),
-        isWebMobile = System.getProperty("web_mobile_device") != null,
-        isRemoteDriver = System.getProperty("remote_driver_url") != null,
-        isVideoOn = System.getProperty("video_storage_url") != null;
+        isWebMobile = webMobileDevice != null,
+        isRemoteDriver = remoteDriverUrl != null,
+        isVideoOn = videoStorageUrl != null;
 
 // BROWSERSTACK CONFIG
     public static final String

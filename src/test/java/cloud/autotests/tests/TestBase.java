@@ -14,12 +14,16 @@ import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
 public class TestBase {
+
     public static String
             DEFAULT_LOGIN = "Alex",
             DEFAULT_PASSWORD = "12345";
 
     @BeforeAll
     public static void beforeAll() {
+        System.setProperty("remote_driver_url", "https://user1:1234@selenoid.autotests.cloud:4444");
+        System.setProperty("video_storage_url", "https://selenoid.autotests.cloud:4444");
+
         addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
         configureSelenide();
     }
