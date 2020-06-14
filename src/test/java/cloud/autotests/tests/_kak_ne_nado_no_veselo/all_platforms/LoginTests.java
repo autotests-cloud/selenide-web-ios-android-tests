@@ -19,8 +19,8 @@ import static io.qameta.allure.Allure.step;
 
 @Feature("Selenide-appium web, iOS and Android tests")
 @Story("Login tests")
-@Tag("android") @Tag("ios") @Tag("web")
 @Tag("bad-practice")
+@Tag("android") @Tag("ios") @Tag("web")
 @Tag("login")
 class LoginTests extends TestBase {
     @Test

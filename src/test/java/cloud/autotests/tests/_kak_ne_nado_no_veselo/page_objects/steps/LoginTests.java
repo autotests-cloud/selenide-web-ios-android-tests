@@ -13,8 +13,8 @@ import org.junit.jupiter.api.Test;
 
 @Feature("Selenide-appium web, iOS and Android tests")
 @Story("Login tests")
-@Tag("not-very-bad-practice")
 @Tag("bad-practice")
+@Tag("web")
 @Tag("login")
 class LoginTests extends TestBase {
     LoginPage loginPage = new LoginPage();
