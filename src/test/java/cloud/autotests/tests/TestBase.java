@@ -21,9 +21,6 @@ public class TestBase {
 
     @BeforeAll
     public static void beforeAll() {
-        System.setProperty("remote_driver_url", "https://user1:1234@selenoid.autotests.cloud:4444");
-        System.setProperty("video_storage_url", "https://selenoid.autotests.cloud");
-
         addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
         configureSelenide();
     }
