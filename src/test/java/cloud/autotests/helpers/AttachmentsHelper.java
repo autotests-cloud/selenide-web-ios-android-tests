@@ -17,7 +17,6 @@ public class AttachmentsHelper {
 
     @Attachment(value = "{attachName}", type = "text/plain")
     public static String attachAsText(String attachName, String message) {
-        System.out.println("[Attachment] " + attachName + ": " + message + "\n");
         return message;
     }
 
@@ -33,11 +32,8 @@ public class AttachmentsHelper {
 
     @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
     public static String attachVideo(String sessionId) {
-        String videoUrl = getVideoUrl(sessionId);
-        System.out.println(videoUrl);
-
         return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
-                + videoUrl
+                + getVideoUrl(sessionId)
                 + "' type='video/mp4'></video></body></html>";
     }
 
@@ -53,7 +49,7 @@ public class AttachmentsHelper {
 
     public static String getWebVideoUrl(String sessionId) {
         try {
-            return new URL(videoStorageUrl + "/video/" + sessionId + ".mp4") + "";
+            return new URL(videoStorageUrl + "/" + sessionId + ".mp4") + "";
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

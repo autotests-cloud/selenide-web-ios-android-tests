@@ -81,8 +81,6 @@ tasks.withType(Test) {
 task web(type: Test) {
     useJUnitPlatform {
         includeTags 'web'
-
-        excludeTags 'bad-practice', 'not-very-bad-practice'
     }
     systemProperty 'platform', 'web'
 }
@@ -90,8 +88,6 @@ task web(type: Test) {
 task android(type: Test) {
     useJUnitPlatform {
         includeTags 'android'
-
-        excludeTags 'bad-practice', 'not-very-bad-practice'
     }
     systemProperty 'platform', 'android'
 }
@@ -99,8 +95,6 @@ task android(type: Test) {
 task ios(type: Test) {
     useJUnitPlatform {
         includeTags 'ios'
-
-        excludeTags 'bad-practice', 'not-very-bad-practice'
     }
     systemProperty 'platform', 'ios'
 }

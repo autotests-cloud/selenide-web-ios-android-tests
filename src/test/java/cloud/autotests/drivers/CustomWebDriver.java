@@ -91,7 +91,7 @@ public class CustomWebDriver implements WebDriverProvider {
 
     private URL getRemoteWebdriverUrl() {
         try {
-            return new URL(remoteDriverUrl + "/wd/hub/");
+            return new URL(remoteDriverUrl);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

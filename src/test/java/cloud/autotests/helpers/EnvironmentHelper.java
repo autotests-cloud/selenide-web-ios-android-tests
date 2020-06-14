@@ -27,8 +27,8 @@ public class EnvironmentHelper {
         screenResolution = System.getProperty("screen_resolution", "1360x768"),
         webMobileDevice = System.getProperty("web_mobile_device"),
 //        webMobileDevice = System.getProperty("web_mobile_device", "iPhone X");
-        remoteDriverUrl = System.getProperty("remote_driver_url"),
-        videoStorageUrl = System.getProperty("video_storage_url");
+        remoteDriverUrl = System.getProperty("remote_driver_url"), // https://username:password@selenoid.autotests.cloud:4444/wd/hub/
+        videoStorageUrl = System.getProperty("video_storage_url"); // https://selenoid.autotests.cloud/video/
     public static final boolean
         isHeadless = parseBoolean(System.getProperty("headless", "false")),
         isWebMobile = webMobileDevice != null,
@@ -54,7 +54,7 @@ public class EnvironmentHelper {
         iosVersion = System.getProperty("mobile_version", "13.2"),
         iosBrowserstackApp = System.getProperty("bs_app", "bs://7dccae106ba5955af20c92a0ceb9...");
 
-// CI CONFIG
+// CI CONFIG (jenkins)
     public static final String
             buildNumber = System.getProperty("build_number", "0"),
             jobBaseName = System.getProperty("job_base_name", "local");
