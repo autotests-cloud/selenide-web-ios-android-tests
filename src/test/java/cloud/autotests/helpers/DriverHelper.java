@@ -2,14 +2,16 @@ package cloud.autotests.helpers;
 
 import cloud.autotests.drivers.CustomMobileDriver;
 import cloud.autotests.drivers.CustomWebDriver;
+
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
 import io.appium.java_client.MobileBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import static cloud.autotests.helpers.EnvironmentHelper.*;
-import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selectors.by;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.openqa.selenium.logging.LogType.BROWSER;
 

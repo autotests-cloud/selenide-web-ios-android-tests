@@ -1,9 +1,10 @@
-package cloud.autotests.tests._kak_ne_nado_no_veselo.selenide_listener_as_text;
+package cloud.autotests.tests._kak_ne_nado_no_veselo.selenide_listener_as_text.en;
 
 import cloud.autotests.tests.TestBase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -23,14 +24,20 @@ import static io.qameta.allure.Allure.step;
 @Tag("web")
 @Tag("login")
 class LoginTests extends TestBase {
-    @Test
-    @Description("Added simple selenide listener - replaced $()-like output to readable text,<br/>" +
-            "<b>$(\"[data-testid=\"Header label\"]\") should have(text 'Not authorized')</b> => \"Header label\" should have text \"Not authorized\"")
-    @DisplayName("Successful login with web react-native app")
-    void successfulLogin() {
+
+    @BeforeEach
+    void addListeners() {
         removeListener("AllureSelenide");
         addListener("AllureSelenideAsText", new AllureSelenideAsText().screenshots(true).savePageSource(true));
+    }
 
+    @Test
+    @Description(
+            "Added simple selenide listener - replaced $()-like output to readable text,<br/>" +
+            "<b>$(\"[data-testid=\"Header label\"]\") should have(text 'Not authorized')</b> -> <br/>" +
+            "\"Header label\" should have text \"Not authorized\"")
+    @DisplayName("Successful login with web react-native app")
+    void successfulLogin() {
         step("Go to login page", ()-> {
             open("");
             $(byTestId("Header label")).shouldHave(text("Not authorized"));
