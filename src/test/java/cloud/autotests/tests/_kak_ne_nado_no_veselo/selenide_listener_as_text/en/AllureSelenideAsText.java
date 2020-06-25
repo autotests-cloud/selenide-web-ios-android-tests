@@ -35,7 +35,6 @@ public class AllureSelenideAsText extends AllureSelenide {
             stepResult.setName(formatedEvent);
         });
 
-
         lifecycle.getCurrentTestCaseOrStep().ifPresent(parentUuid -> {
             switch (event.getStatus()) {
                 case PASS:
@@ -116,7 +115,6 @@ public class AllureSelenideAsText extends AllureSelenide {
                 element = "List of " + element;
             }
 
-
             if(subject.contains("should have(Texts [")) {
                 subject = subject
                         .replace("should have(Texts [", "should have texts \"")
@@ -144,7 +142,4 @@ public class AllureSelenideAsText extends AllureSelenide {
 
         return event.toString();
     }
-
-
-
 }

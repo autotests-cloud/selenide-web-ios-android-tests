@@ -20,14 +20,14 @@ targetCompatibility = 1.8
 defaultTasks 'help'
 
 ext {
-    allureVersion = '2.13.3'
-    junitVersion = '5.6.2'
+    allureVersion = "2.13.3"
+    selenideVersion = "5.12.2"
+    junitVersion = "5.6.2"
 }
 
 repositories {
     mavenCentral()
 }
-
 
 allure {
     version = "${allureVersion}"
@@ -39,17 +39,18 @@ allure {
 }
 
 dependencies {
-    testImplementation 'org.aspectj:aspectjweaver:1.9.5'
-    testImplementation 'com.codeborne:selenide:5.12.2'
+    testImplementation "org.aspectj:aspectjweaver:1.9.5"
+    testImplementation "com.codeborne:selenide:${selenideVersion}"
     testImplementation "io.qameta.allure:allure-selenide:${allureVersion}"
     testImplementation "io.qameta.allure:allure-rest-assured:${allureVersion}"
-    testImplementation 'io.rest-assured:rest-assured:4.1.2'
-    testImplementation 'io.appium:java-client:7.3.0'
-    testImplementation 'com.fasterxml.jackson.core:jackson-annotations:2.10.3'
-    testImplementation 'ch.qos.logback:logback-classic:1.2.3'
+    testImplementation "io.rest-assured:rest-assured:4.1.2"
+    testImplementation "io.appium:java-client:7.3.0"
+    testImplementation "com.browserup:browserup-proxy-core:2.1.1"
+    testImplementation "com.fasterxml.jackson.core:jackson-annotations:2.10.3"
+    testImplementation "ch.qos.logback:logback-classic:1.2.3"
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
 }
 
 tasks.withType(JavaCompile) {
@@ -67,14 +68,14 @@ tasks.withType(Test) {
                 'junit.jupiter.execution.parallel.config.fixed.parallelism': project.getProperty("web_threads").toInteger()
         ]
     }
+    if (project.hasProperty("allure_results")) {
+        systemProperty 'allure_results', project.getProperty("allure_results")
+    }
     testLogging {
         lifecycle {
             events "started", "skipped", "failed", "standard_error", "standard_out"
             exceptionFormat "short"
         }
-    }
-    if (project.hasProperty("allure_results")) {
-        systemProperty 'allure_results', project.getProperty("allure_results")
     }
 }
 

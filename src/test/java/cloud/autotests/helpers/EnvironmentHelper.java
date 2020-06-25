@@ -1,7 +1,5 @@
 package cloud.autotests.helpers;
 
-import javafx.beans.property.SetProperty;
-
 import static java.lang.Boolean.parseBoolean;
 
 

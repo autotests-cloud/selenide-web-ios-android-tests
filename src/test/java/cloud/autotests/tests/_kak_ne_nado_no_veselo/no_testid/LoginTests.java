@@ -4,6 +4,7 @@ import cloud.autotests.tests.TestBase;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -21,6 +22,7 @@ import static io.qameta.allure.Allure.step;
 @Tag("login")
 class LoginTests extends TestBase {
     @Test
+    @Disabled("wrong locators")
     @DisplayName("Successful login with web react-native app")
     void successfulLogin() {
         step("Go to login page", ()-> {
