@@ -1,7 +1,6 @@
 package cloud.autotests.tests._kak_ne_nado_no_veselo.no_testid;
 
 import cloud.autotests.tests.TestBase;
-import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.Disabled;
@@ -9,7 +8,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static cloud.autotests.helpers.DriverHelper.byTestId;
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
