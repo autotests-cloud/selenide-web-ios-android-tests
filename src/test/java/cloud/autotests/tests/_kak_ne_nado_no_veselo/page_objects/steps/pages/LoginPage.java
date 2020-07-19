@@ -17,7 +17,6 @@ public class LoginPage extends BasePage {
             rememberMeCheckbox = $(byTestId("Remember me checkbox")),
             loginButton = $(byTestId("Login button"));
 
-
     @Step("Open Login page")
     public LoginPage openPage() {
         open("");
@@ -50,7 +49,6 @@ public class LoginPage extends BasePage {
     public void clickSubmitButton() {
         loginButton.click();
     }
-
 
     @Step("Authorization form should exist")
     public LoginPage verifyAuthorizationFormExists() {

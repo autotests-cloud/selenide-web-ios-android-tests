@@ -27,7 +27,7 @@ class LoginTests extends TestBase {
     @Description("Bad practice - one test for all platforms")
     @DisplayName("Successful login with web/iOS/Android react-native app")
     void successfulLogin() {
-        step("Go to login page", () -> {
+        step("Go to login page", ()-> {
             if(isWeb) {
                 open("");
             } else {

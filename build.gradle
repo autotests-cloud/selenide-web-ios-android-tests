@@ -21,7 +21,7 @@ defaultTasks 'help'
 
 ext {
     allureVersion = "2.13.3"
-    selenideVersion = "5.12.2"
+    selenideVersion = "5.13.0"
     junitVersion = "5.6.2"
 }
 
@@ -45,7 +45,6 @@ dependencies {
     testImplementation "io.qameta.allure:allure-rest-assured:${allureVersion}"
     testImplementation "io.rest-assured:rest-assured:4.1.2"
     testImplementation "io.appium:java-client:7.3.0"
-    testImplementation "com.browserup:browserup-proxy-core:2.1.1"
     testImplementation "com.fasterxml.jackson.core:jackson-annotations:2.10.3"
     testImplementation "ch.qos.logback:logback-classic:1.2.3"
 

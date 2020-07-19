@@ -30,7 +30,7 @@ class LoginTests extends TestBase {
 
     @Test
     @Description(
-            "Added simple selenide listener - replaced $()-like output to readable text,<br/>" +
+            "Добавлен простой selenide listener - заменены $()-подобные выводы на читаемый текст,<br/>" +
             "<b>$(\"[data-testid=\"Надпись заголовка\"]\") should have(text 'Пожалуйста, авторизуйтесь')</b> -> <br/>" +
             "\"Надпись заголовка\" должен(а) иметь текст \"Пожалуйста, авторизуйтесь\"")
     @DisplayName("Successful login with web react-native app")
