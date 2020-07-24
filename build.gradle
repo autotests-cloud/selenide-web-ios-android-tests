@@ -47,6 +47,7 @@ dependencies {
     testImplementation "io.appium:java-client:7.3.0"
     testImplementation "com.fasterxml.jackson.core:jackson-annotations:2.10.3"
     testImplementation "ch.qos.logback:logback-classic:1.2.3"
+    testImplementation "io.qameta.allure:allure-ee-junit-platform:3.28.2"
 
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
@@ -54,6 +55,7 @@ dependencies {
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
+
 }
 
 tasks.withType(Test) {
@@ -76,6 +78,7 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
+    systemProperty("junit.jupiter.extensions.autodetection.enabled", "true")
 }
 
 task web(type: Test) {
