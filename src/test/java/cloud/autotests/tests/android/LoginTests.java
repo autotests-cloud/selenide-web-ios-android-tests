@@ -15,12 +15,12 @@ import static io.qameta.allure.Allure.step;
 
 
 @Feature("Selenide-appium web, iOS and Android tests")
-@Story("Login tests")
+@Story("Login tests. Android")
 @Tag("android")
 @Tag("login")
 class LoginTests extends TestBase {
     @Test
-    @DisplayName("Successful login with Android react-native app")
+    @DisplayName("Successful login in Android app. Testid-strategy")
     void successfulLogin() {
         step("Go to login page", ()-> {
             open();

@@ -18,14 +18,16 @@ import static io.qameta.allure.Allure.step;
 
 
 @Feature("Selenide-appium web, iOS and Android tests")
-@Story("Login tests")
+@Story("Login tests. Web")
+@Story("Login tests. iOS")
+@Story("Login tests. Android")
 @Tag("bad-practice")
 @Tag("android") @Tag("ios") @Tag("web")
 @Tag("login")
 class LoginTests extends TestBase {
     @Test
     @Description("Bad practice - one test for all platforms")
-    @DisplayName("Successful login with web/iOS/Android react-native app")
+    @DisplayName("Successful login in Web / iOS / Android app. Testid-strategy")
     void successfulLogin() {
         step("Go to login page", ()-> {
             if(isWeb) {

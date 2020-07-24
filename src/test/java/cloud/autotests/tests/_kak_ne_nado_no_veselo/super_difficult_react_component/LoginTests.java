@@ -18,13 +18,13 @@ import static io.qameta.allure.Allure.step;
 
 
 @Feature("Selenide-appium web, iOS and Android tests")
-@Story("Login tests")
+@Story("Login tests. Web")
 @Tag("web")
 @Tag("login")
 class LoginTests extends TestBase {
     @Test
     @Description("Not very bad practice - we keep our script-like format and instead of actions extend SelenideElement")
-    @DisplayName("Successful login with web react-native app")
+    @DisplayName("Successful login in Web app. React-like components")
     void successfulLogin() {
         step("Go to login page", ()-> {
             open("");

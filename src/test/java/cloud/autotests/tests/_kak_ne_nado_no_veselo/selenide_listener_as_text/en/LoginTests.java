@@ -19,7 +19,7 @@ import static io.qameta.allure.Allure.step;
 
 
 @Feature("Selenide-appium web, iOS and Android tests")
-@Story("Login tests")
+@Story("Login tests. Web")
 @Tag("not-very-bad-practice")
 @Tag("web")
 @Tag("login")
@@ -36,7 +36,7 @@ class LoginTests extends TestBase {
             "Added simple selenide listener - replaced $()-like output to readable text,<br/>" +
             "<b>$(\"[data-testid=\"Header label\"]\") should have(text 'Not authorized')</b> -> <br/>" +
             "\"Header label\" should have text \"Not authorized\"")
-    @DisplayName("Successful login with web react-native app")
+    @DisplayName("Successful login in Web app. AllureSelenideAsText listener (EN)")
     void successfulLogin() {
         step("Go to login page", ()-> {
             open("");

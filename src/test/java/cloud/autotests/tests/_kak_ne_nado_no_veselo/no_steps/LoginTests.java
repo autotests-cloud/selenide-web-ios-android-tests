@@ -16,14 +16,14 @@ import static io.qameta.allure.Allure.step;
 
 
 @Feature("Selenide-appium web, iOS and Android tests")
-@Story("Login tests")
+@Story("Login tests. Web")
 @Tag("bad-practice")
 @Tag("web")
 @Tag("login")
 class LoginTests extends TestBase {
     @Test
     @Description("Bad practice - big prostynja without steps")
-    @DisplayName("Successful login with web react-native app")
+    @DisplayName("Successful login in Web app. Testid-strategy. No steps")
     void successfulLogin() {
         open("");
         $(byTestId("Header label")).shouldHave(text("Not authorized"));

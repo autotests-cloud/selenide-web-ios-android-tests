@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 
 @Feature("Selenide-appium web, iOS and Android tests")
-@Story("Login tests")
+@Story("Login tests. Web")
 @Tag("not-very-bad-practice")
 @Tag("web")
 @Tag("login")
@@ -22,7 +22,7 @@ class LoginTests extends TestBase {
 
     @Test
     @Description("Not very bad practice - page-objects are good, but not in this simple case")
-    @DisplayName("Successful login with web/iOS/Android react-native app")
+    @DisplayName("Successful login in Web app. Page object. Scenario")
     void successfulLogin() {
         loginPage.goToLoginPage();
 

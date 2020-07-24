@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 
 @Feature("Selenide-appium web, iOS and Android tests")
-@Story("Login tests")
+@Story("Login tests. Web")
 @Tag("bad-practice")
 @Tag("web")
 @Tag("login")
@@ -22,7 +22,7 @@ class LoginTests extends TestBase {
 
     @Test
     @Description("Bad practice - a step for every action, a lot of code")
-    @DisplayName("Successful login with web react-native app")
+    @DisplayName("Successful login in Web app. Page object. Steps")
     void successfulLogin() {
         loginPage.openPage();
         loginPage.verifyHeaderLabelHasText("Not authorized");
