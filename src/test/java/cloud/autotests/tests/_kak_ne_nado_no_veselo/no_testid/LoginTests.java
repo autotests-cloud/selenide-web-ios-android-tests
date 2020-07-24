@@ -20,7 +20,7 @@ import static io.qameta.allure.Allure.step;
 @Tag("login")
 class LoginTests extends TestBase {
     @Test
-    @Disabled("wrong locators")
+    @Disabled("Not selected in execution")
     @DisplayName("Successful login with web react-native app")
     void successfulLogin() {
         step("Go to login page", ()-> {
