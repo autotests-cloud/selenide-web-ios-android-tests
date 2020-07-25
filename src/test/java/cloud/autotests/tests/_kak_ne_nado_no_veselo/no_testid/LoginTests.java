@@ -20,7 +20,6 @@ import static io.qameta.allure.Allure.step;
 @Tag("login")
 class LoginTests extends TestBase {
     @Test
-    @Disabled("Not selected in execution")
     @DisplayName("Successful login in Web app. No testid")
     void successfulLogin() {
         step("Go to login page", ()-> {

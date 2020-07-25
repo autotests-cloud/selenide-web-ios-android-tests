@@ -26,7 +26,7 @@ ext {
 }
 
 repositories {
-    maven{url = "https://dl.bintray.com/qameta/maven-unstable/"}
+    maven {url = "https://dl.bintray.com/qameta/maven-unstable/"}
     mavenCentral()
 }
 
@@ -79,7 +79,7 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
-    systemProperty("junit.jupiter.extensions.autodetection.enabled", "true")
+    systemProperty 'junit.jupiter.extensions.autodetection.enabled', 'true'
 }
 
 task web(type: Test) {

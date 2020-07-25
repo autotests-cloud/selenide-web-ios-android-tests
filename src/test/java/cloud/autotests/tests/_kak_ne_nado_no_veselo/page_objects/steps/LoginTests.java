@@ -40,7 +40,7 @@ class LoginTests extends TestBase {
 
     @Test
     @Description("Bad practice - a step for every action, a lot of code + dsl")
-    @DisplayName("Successful login with web react-native app")
+    @DisplayName("Successful login in Web app. Page object. Steps + dsl-style")
     void successfulLoginDsl() {
         loginPage.openPage()
                 .verifyHeaderLabelHasText("Not authorized");
