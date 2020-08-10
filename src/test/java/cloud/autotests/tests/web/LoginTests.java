@@ -19,9 +19,10 @@ import static io.qameta.allure.Allure.step;
 @Tag("web")
 @Tag("login")
 class LoginTests extends TestBase {
+
     @Test
     @DisplayName("Successful login in Web app. Testid-strategy")
-    void successfulLogin() {
+    void successfulLoginTest() {
         step("Go to login page", ()-> {
             open("");
             $(byTestId("Header label")).shouldHave(text("Not authorized"));

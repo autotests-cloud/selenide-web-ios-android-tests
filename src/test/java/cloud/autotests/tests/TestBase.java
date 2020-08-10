@@ -1,6 +1,6 @@
 package cloud.autotests.tests;
 
-import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 
@@ -20,12 +20,14 @@ public class TestBase {
             DEFAULT_PASSWORD = "12345";
 
     @BeforeAll
+    @Step("Tests setup")
     public static void beforeAll() {
         addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
         configureSelenide();
     }
 
     @AfterEach
+    @Step("Attachments")
     public void afterEach(){
         String sessionId = getSessionId();
 
@@ -40,6 +42,3 @@ public class TestBase {
         if (isVideoOn) attachVideo(sessionId); // in browserstack video url generates after driver close
     }
 }
-
-
-
