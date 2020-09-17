@@ -37,17 +37,17 @@ allure {
 }
 
 dependencies {
-    testImplementation "org.aspectj:aspectjweaver:1.9.5"
-    testImplementation "com.codeborne:selenide:${selenideVersion}"
-    testImplementation "io.qameta.allure:allure-selenide:${allureVersion}"
-    testImplementation "io.qameta.allure:allure-rest-assured:${allureVersion}"
-    testImplementation "io.rest-assured:rest-assured:4.1.2"
-    testImplementation "io.appium:java-client:7.3.0"
-    testImplementation "com.fasterxml.jackson.core:jackson-annotations:2.10.3"
-    testImplementation "ch.qos.logback:logback-classic:1.2.3"
-    testImplementation "io.qameta.allure:allure-ee-junit-platform:3.28.2"
-
-    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testImplementation (
+            "org.aspectj:aspectjweaver:1.9.5",
+            "com.codeborne:selenide:${selenideVersion}",
+            "io.qameta.allure:allure-selenide:${allureVersion}",
+            "io.rest-assured:rest-assured:4.1.2",
+            "io.qameta.allure:allure-rest-assured:${allureVersion}",
+            "com.fasterxml.jackson.core:jackson-annotations:2.10.3",
+            "io.appium:java-client:7.3.0",
+            "ch.qos.logback:logback-classic:1.2.3",
+            "io.qameta.allure:allure-ee-junit-platform:3.28.2",
+            "org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
 }
 

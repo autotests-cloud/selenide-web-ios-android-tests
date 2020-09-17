@@ -14,7 +14,7 @@ public class EnvironmentHelper {
 // WEB CONFIG
     public static final boolean isWeb = platform.equals("web");
     public static final String
-        webUrl = "http://" + System.getProperty("web_url", "autotests.cloud"),
+        webUrl = "https://" + System.getProperty("web_url", "autotests.cloud"),
 //        webUrl = "https://" + System.getProperty("web_url", "test.autotests.cloud"),
 //        webUrl = "https://" + System.getProperty("web_url", "staging.autotests.cloud"),
 //        webUrl = "https://login:password@" + System.getProperty("web_url", "staging.autotests.cloud"),

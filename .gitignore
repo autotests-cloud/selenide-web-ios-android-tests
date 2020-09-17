@@ -38,3 +38,4 @@ target/
 /gradlew
 /gradlew.bat
 .todo
+local.properties
