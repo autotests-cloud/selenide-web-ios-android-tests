@@ -78,6 +78,10 @@ tasks.withType(Test) {
     systemProperty 'junit.jupiter.extensions.autodetection.enabled', 'true'
 }
 
+test {
+    useJUnitPlatform()
+}
+
 task web(type: Test) {
     useJUnitPlatform {
         includeTags 'web'
