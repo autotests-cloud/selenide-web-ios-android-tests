@@ -31,7 +31,7 @@ class LoginTests extends TestBase {
     void successfulLogin() {
         step("Go to login page", ()-> {
             if(isWeb) {
-                open("");
+                open("https://autotests.cloud");
             } else {
                 open();
             }

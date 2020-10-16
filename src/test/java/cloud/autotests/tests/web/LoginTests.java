@@ -24,7 +24,7 @@ class LoginTests extends TestBase {
     @DisplayName("Successful login in Web app. Testid-strategy")
     void successfulLoginTest() {
         step("Go to login page", ()-> {
-            open("");
+            open("https://autotests.cloud");
             $(byTestId("Header label")).shouldHave(text("Not authorized"));
         });
 

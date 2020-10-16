@@ -25,7 +25,7 @@ class LoginTests extends TestBase {
     @Description("Bad practice - big prostynja without steps")
     @DisplayName("Successful login in Web app. Testid-strategy. No steps")
     void successfulLogin() {
-        open("");
+        open("https://autotests.cloud");
         $(byTestId("Header label")).shouldHave(text("Not authorized"));
 
         $(byTestId("Authorization form")).shouldBe(visible);

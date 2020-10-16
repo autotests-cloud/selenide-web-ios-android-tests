@@ -19,7 +19,7 @@ public class LoginPage extends BasePage {
 
     @Step("Open Login page")
     public LoginPage openPage() {
-        open("");
+        open("https://autotests.cloud");
 
         return this;
     }

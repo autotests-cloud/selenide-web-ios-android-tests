@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class LoginPage {
     @Step("Go to login page")
     public void goToLoginPage() {
-        open("");
+        open("https://autotests.cloud");
         $(byTestId("Header label")).shouldHave(text("Not authorized"));
     }
 

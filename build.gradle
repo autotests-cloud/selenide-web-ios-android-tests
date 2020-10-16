@@ -17,8 +17,8 @@ targetCompatibility = 1.8
 defaultTasks 'help'
 
 ext {
-    allureVersion = "2.13.5"
-    selenideVersion = "5.13.1"
+    allureVersion = "2.13.6"
+    selenideVersion = "5.15.1"
     junitVersion = "5.6.2"
 }
 

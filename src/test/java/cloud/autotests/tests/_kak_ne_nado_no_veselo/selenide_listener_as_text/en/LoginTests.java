@@ -39,7 +39,7 @@ class LoginTests extends TestBase {
     @DisplayName("Successful login in Web app. AllureSelenideAsText listener (EN)")
     void successfulLogin() {
         step("Go to login page", ()-> {
-            open("");
+            open("https://autotests.cloud");
             $(byTestId("Header label")).shouldHave(text("Not authorized"));
         });
 
