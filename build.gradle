@@ -17,9 +17,9 @@ targetCompatibility = 1.8
 defaultTasks 'help'
 
 ext {
-    allureVersion = "2.13.6"
-    selenideVersion = "5.15.1"
-    junitVersion = "5.6.2"
+    allureVersion = "2.13.8"
+    selenideVersion = "5.17.3"
+    junitVersion = "5.7.0"
 }
 
 repositories {
@@ -57,6 +57,7 @@ tasks.withType(JavaCompile) {
 
 tasks.withType(Test) {
     systemProperties = System.properties
+    systemProperty 'junit.jupiter.extensions.autodetection.enabled', 'true'
     if (project.hasProperty("web_threads")) {
         systemProperties += [
                 'junit.jupiter.execution.parallel.enabled'                 : true,
@@ -66,16 +67,12 @@ tasks.withType(Test) {
                 'junit.jupiter.execution.parallel.config.fixed.parallelism': project.getProperty("web_threads").toInteger()
         ]
     }
-    if (project.hasProperty("allure_results")) {
-        systemProperty 'allure_results', project.getProperty("allure_results")
-    }
     testLogging {
         lifecycle {
             events "started", "skipped", "failed", "standard_error", "standard_out"
             exceptionFormat "short"
         }
     }
-    systemProperty 'junit.jupiter.extensions.autodetection.enabled', 'true'
 }
 
 test {
@@ -103,6 +100,14 @@ task ios(type: Test) {
     systemProperty 'platform', 'ios'
 }
 
+task none(type: Test) {
+    useJUnitPlatform {
+        excludeTags 'web'
+        excludeTags 'ios'
+        excludeTags 'android'
+    }
+}
+
 help {
     doFirst {
         println ""
@@ -111,9 +116,6 @@ help {
         println "*** Welcome to                                                       *** "
         println "*** https://github.com/autotests-cloud/selenide-junit5-allure-gradle *** "
         println "***                                                                  *** "
-        println "*** Requirements for mobile tests:                                   *** "
-        println "*** - start appium server locally                                    *** "
-        println "*** - install XCode with iPhone Simulators                           *** "
         println "***                                                                  *** "
         println "*** You can run tests by one of the following commands:              *** "
         println "*** ./gradlew web                                                    *** "

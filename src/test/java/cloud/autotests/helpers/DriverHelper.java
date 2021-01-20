@@ -5,18 +5,22 @@ import cloud.autotests.drivers.CustomWebDriver;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import io.appium.java_client.MobileBy;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import static cloud.autotests.helpers.EnvironmentHelper.*;
 import static com.codeborne.selenide.Selectors.by;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static org.openqa.selenium.logging.LogType.BROWSER;
 
 
 public class DriverHelper {
 
     public static void configureSelenide() {
+        addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
+
         if (isWeb) {
             Configuration.browser = CustomWebDriver.class.getName();
             Configuration.baseUrl = webUrl;
