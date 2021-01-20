@@ -17,7 +17,6 @@ import static cloud.autotests.tests.TestData.DEFAULT_PASSWORD;
 @Feature("Selenide-appium web, iOS and Android tests")
 @Story("Login tests. Web")
 @Tag("not-very-bad-practice")
-@Tag("web")
 @Tag("login")
 class LoginTests extends TestBase {
     LoginPage loginPage = new LoginPage();
