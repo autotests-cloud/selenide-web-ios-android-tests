@@ -1,6 +1,5 @@
 package cloud.autotests.tests;
 
-import io.qameta.allure.Step;
 import org.junit.jupiter.api.*;
 
 import static cloud.autotests.helpers.AttachmentsHelper.*;
@@ -13,18 +12,12 @@ import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
 public class TestBase {
 
-    public static String
-            DEFAULT_LOGIN = "Alex",
-            DEFAULT_PASSWORD = "12345";
-
     @BeforeAll
-    @Step("Tests setup")
     public static void beforeAll() {
         configureSelenide();
     }
 
     @AfterEach
-    @Step("Attachments")
     public void addAttachments(){
         String sessionId = getSessionId();
 

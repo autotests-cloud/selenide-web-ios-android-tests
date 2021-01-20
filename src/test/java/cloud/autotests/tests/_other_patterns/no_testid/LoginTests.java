@@ -7,6 +7,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static cloud.autotests.tests.TestData.DEFAULT_LOGIN;
+import static cloud.autotests.tests.TestData.DEFAULT_PASSWORD;
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -15,7 +17,6 @@ import static io.qameta.allure.Allure.step;
 
 @Feature("Selenide-appium web, iOS and Android tests")
 @Story("Login tests. Web")
-@Tag("web")
 @Tag("login")
 class LoginTests extends TestBase {
     @Test

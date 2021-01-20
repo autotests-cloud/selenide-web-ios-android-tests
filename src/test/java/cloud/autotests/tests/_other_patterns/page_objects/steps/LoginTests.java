@@ -10,11 +10,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static cloud.autotests.tests.TestData.DEFAULT_LOGIN;
+import static cloud.autotests.tests.TestData.DEFAULT_PASSWORD;
+
 
 @Feature("Selenide-appium web, iOS and Android tests")
 @Story("Login tests. Web")
 @Tag("bad-practice")
-@Tag("web")
 @Tag("login")
 class LoginTests extends TestBase {
     LoginPage loginPage = new LoginPage();

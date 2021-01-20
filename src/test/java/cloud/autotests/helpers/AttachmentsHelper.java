@@ -25,7 +25,7 @@ public class AttachmentsHelper {
         return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
 
-    @Attachment(value = "Page source", type = "text/plain")
+    @Attachment(value = "Page source", type = "text/html")
     public static byte[] attachPageSource() {
         return getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
     }

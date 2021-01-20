@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 
 import static cloud.autotests.helpers.DriverHelper.byTestId;
 import static cloud.autotests.helpers.EnvironmentHelper.isWeb;
+import static cloud.autotests.tests.TestData.DEFAULT_LOGIN;
+import static cloud.autotests.tests.TestData.DEFAULT_PASSWORD;
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -17,11 +19,7 @@ import static io.qameta.allure.Allure.step;
 
 
 @Feature("Selenide-appium web, iOS and Android tests")
-@Story("Login tests. Web")
-@Story("Login tests. iOS")
-@Story("Login tests. Android")
 @Tag("bad-practice")
-@Tag("android") @Tag("ios") @Tag("web")
 @Tag("login")
 class LoginTests extends TestBase {
     @Test
