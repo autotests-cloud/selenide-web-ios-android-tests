@@ -1,5 +1,3 @@
-import ...
-
 @Feature("Selenide-appium web, iOS and Android tests")
 @Story("Login tests. iOS")
 @Tag("ios")
