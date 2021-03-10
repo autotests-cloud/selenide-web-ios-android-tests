@@ -100,14 +100,6 @@ task ios(type: Test) {
     systemProperty 'platform', 'ios'
 }
 
-task none(type: Test) {
-    useJUnitPlatform {
-        excludeTags 'web'
-        excludeTags 'ios'
-        excludeTags 'android'
-    }
-}
-
 help {
     doFirst {
         println ""
