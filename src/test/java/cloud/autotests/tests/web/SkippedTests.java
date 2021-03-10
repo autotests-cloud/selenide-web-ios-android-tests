@@ -3,6 +3,7 @@ package cloud.autotests.tests.web;
 import cloud.autotests.tests.TestBase;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -21,6 +22,7 @@ import static io.qameta.allure.Allure.step;
 class SkippedTests extends TestBase {
 
     @Test
+    @Disabled
     @DisplayName("Skipped login test #1")
     void skippedTest1() {
         step("Go to login page", ()-> {
@@ -31,6 +33,7 @@ class SkippedTests extends TestBase {
 
 
     @Test
+    @Disabled
     @DisplayName("Skipped login test #2")
     void skippedTest2() {
         step("Go to login page", ()-> {
@@ -41,6 +44,7 @@ class SkippedTests extends TestBase {
 
 
     @Test
+    @Disabled
     @DisplayName("Skipped login test #3")
     void skippedTest3() {
         step("Go to login page", ()-> {
@@ -51,6 +55,7 @@ class SkippedTests extends TestBase {
 
 
     @Test
+    @Disabled
     @DisplayName("Skipped login test #4")
     void skippedTest4() {
         step("Go to login page", ()-> {
