@@ -56,7 +56,7 @@ tasks.withType(JavaCompile) {
 }
 
 tasks.withType(Test) {
-    systemProperties = System.properties
+    systemProperties += System.properties
     systemProperty 'junit.jupiter.extensions.autodetection.enabled', 'true'
     if (project.hasProperty("web_threads")) {
         systemProperties += [
