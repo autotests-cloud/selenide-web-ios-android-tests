@@ -21,6 +21,7 @@ import static io.qameta.allure.Allure.step;
 @Tag("ios")
 @Tag("login")
 class LoginTests extends TestBase {
+    
     @Test
     @DisplayName("Successful login in iOS app. Testid-strategy")
     void successfulLogin() {
