@@ -54,7 +54,7 @@ class LoginTests extends TestBase {
                 .clickSubmitButton();
 
         mainPage.verifyAuthorizationFormDoesntExist()
-                .verifyHeaderLabelHasText("Hello, " + DEFAULT_LOGIN + "!");
-        mainPage.verifyPrivateContentExists();
+                .verifyHeaderLabelHasText("Hello, " + DEFAULT_LOGIN + "!")
+                .verifyPrivateContentExists();
     }
 }
